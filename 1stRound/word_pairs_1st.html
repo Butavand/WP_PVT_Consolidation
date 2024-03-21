@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<html>
+  <head>
+    <title>Word Pairs Task</title>
+    <script src="jspsych/jspsych.js"></script>
+    <script src="jspsych/plugin-instructions.js"></script>
+    <script src="jspsych/plugin-survey-html-form-DRB.js"></script>
+    <script src="jspsych/plugin-survey-multi-choice.js"></script>
+    <script src="jspsych/plugin-survey-likert.js"></script>
+    <script src="word_lists.js"></script>
+    <script src="wordsPractice.js"></script>
+    <script src="jspsych/plugin-html-button-response.js"></script>
+    <script src="jspsych/plugin-html-keyboard-response.js"></script>
+    <script src="jspsych/plugin-call-function.js"></script>
+    
+    <!-- Use custom css. Same as jsPsych css, with some additions. -->
+    <link href="./_custom.css" rel="stylesheet"></link>
+
+    <script>
+      var jsPsych = initJsPsych({
+        on_finish: function(){
+        jsPsych.data.get().localSave('csv',`wp.csv`); // this shows the responses --> might be useful when coding
+        /*let relevant_data = jsPsych.data.get().filter([{phase: 'encoding'}, {phase: 'test'}]);
+        let relevant_data_as_csv = relevant_data.csv();
+        saveData(results.csv, relevant_data_as_csv);*/
+    }
+      });
+    </script>
+
+    <script src="./psychomotor_vigilance_functions.js"></script>
+    <script src="./psychomotor_vigilance_initialise.js"></script>
+    <script src="./psychomotor_vigilance_trials.js"></script>
+    <script src="./psychomotor_vigilance_instructions_german.js"></script>
+    <script src="./psychomotor_vigilance_timeline.js"></script> 
+
+    <script src="./word_pairs_functions.js"></script>
+    <script src="./word_pairs_initialise.js"></script>
+    <script src="./word_pairs_instructions.js"></script>
+    <script src="./word_pairs_trials.js"></script>
+
+
+
+
+
+    <!-- this is the last one because it contains the timeline-->
+    <script src="./word_pairs_timeline.js"></script>
+
+
+  </head>
+
+  <body></body>
+
+  <script>jsPsych.run(timeline)</script>
+  
+</html>
