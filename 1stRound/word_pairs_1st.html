@@ -19,12 +19,9 @@
 
     <script>
       var jsPsych = initJsPsych({
-        on_finish: function(){
-        jsPsych.data.get().localSave('csv',`wp.csv`); // this shows the responses --> might be useful when coding
-        /*let relevant_data = jsPsych.data.get().filter([{phase: 'encoding'}, {phase: 'test'}]);
-        let relevant_data_as_csv = relevant_data.csv();
-        saveData(results.csv, relevant_data_as_csv);*/
-    }
+        on_finish: function() {
+          jsPsych.data.get().localSave('csv', `${participantID}_wp.csv`);
+        }
       });
     </script>
 
@@ -34,7 +31,6 @@
     <script src="./psychomotor_vigilance_instructions_german.js"></script>
     <script src="./psychomotor_vigilance_timeline.js"></script> 
 
-    <script src="./word_pairs_functions.js"></script>
     <script src="./word_pairs_initialise.js"></script>
     <script src="./word_pairs_instructions.js"></script>
     <script src="./word_pairs_trials.js"></script>
