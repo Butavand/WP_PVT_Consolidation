@@ -37,7 +37,6 @@ var whichVersion = {
     }
 };
 
-
 // Fixation cross
 var fixation = {
     type: jsPsychHtmlKeyboardResponse,
@@ -99,7 +98,6 @@ var practiceRunEncodingA = {
     choices: 'NO_KEYS',
     radomize_order: true,
     conditional_function: () => list == 'a' ? true : false
-
 };
 
 var practiceRunEncodingB = {
@@ -108,7 +106,6 @@ var practiceRunEncodingB = {
     choices: 'NO_KEYS',
     radomize_order: true,
     conditional_function: () => list == 'b' ? true : false
-
 };
 
 var practiceTest = {
@@ -178,20 +175,19 @@ var encoding = {
 };
 
 // It runs encoding
-var runEncodingA= {
+var runEncodingA = {
     timeline: [fixation, encoding],
-    timeline_variables: wordLists[0],
+    timeline_variables: wordLists[0][sequence_no],
     randomize_order: true,
     conditional_function: () => list == 'a' || list == 'A'? true : false
 };
 
-var runEncodingB= {
+var runEncodingB = {
     timeline: [fixation, encoding],
-    timeline_variables: wordLists[1],
+    timeline_variables: wordLists[1][sequence_no],
     randomize_order: true,
     conditional_function: () => list == 'b' || list == 'B'? true : false
 };
-
 
 // Actual trials - Test
 var test = {
@@ -208,7 +204,6 @@ var test = {
             `;
         },
     autofocus: 'test-resp-box-practice',
-//    preamble: 'Probando: <br><br>',
     trial_duration: test_duration,
     data: {
         phase: 'test',
@@ -233,14 +228,14 @@ var test = {
 // It runs test with word of list 1
 var runTestA = {
     timeline: [test, ifWarning],
-    timeline_variables: wordLists[0], //trialStimuli,
+    timeline_variables: wordLists[0][sequence_no],
     randomize_order: true,
     conditional_function: () => list == 'a' || list == 'A'? true : false
 };
 
 var runTestB = {
     timeline: [test, ifWarning],
-    timeline_variables: wordLists[1], //trialStimuli,
+    timeline_variables: wordLists[1][sequence_no],
     randomize_order: true,
     conditional_function: () => list == 'b' || list == 'B'? true : false
 };
