@@ -19,11 +19,11 @@ var whichParticipant = {
 var whichVersion = {
     type: jsPsychSurveyHtmlForm,
     html:
-    `<b>Bitte geben Sie the list:</b><br>`+
-    '<p><select class="large-select" id="sex" required="required" name="sex">' + 
-              '<option value=""></option>' + 
-              '<option value="a">a</option>' + 
-              '<option value="b">b</option></select></p>',
+    `<b>Liste wählen:</b><br>
+    <p><select class="large-select" id="wordlist" required="required" name="wordlist">
+        <option value=""></option>
+        <option value="a">a</option>
+        <option value="b">b</option></select></p>`,
     data: { phase: 'version' },
     button_label: ['Weiter'],
     on_finish: function(data) {
@@ -177,21 +177,19 @@ var encoding = {
 };
 
 // It runs encoding
-var runEncodingA= {
+var runEncodingA = {
     timeline: [fixation, encoding],
-    timeline_variables: wordLists[0],
+    timeline_variables: wordLists[0][21], // first number: list: 0 = A, 1 = B; second: sequence (to do: random!)
     randomize_order: true,
     conditional_function: () => list == 'a' || list == 'A'? true : false
 };
 
-var runEncodingB= {
+var runEncodingB = {
     timeline: [fixation, encoding],
-    timeline_variables: wordLists[1],
+    timeline_variables: wordLists[1][21], // first number: list: 0 = A, 1 = B; second: sequence (to do: random!)
     randomize_order: true,
     conditional_function: () => list == 'b' || list == 'B'? true : false
 };
-
-
 
 // Actual trials - Test
 var test = {
