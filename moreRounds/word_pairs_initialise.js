@@ -12,3 +12,11 @@ var numberOfRepetitions = 1; // 2 real
 
 var counterCorrect = 0;
 var counterEmpty = 0;
+
+// Random number generator
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// draw random word pair order
+let sequence_no = getRandomInt(0, 263);
