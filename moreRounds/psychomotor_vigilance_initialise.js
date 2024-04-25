@@ -1,9 +1,6 @@
 // INITIALISE
 // Initialise a few variables for experimental settings
 
-// Return link - where participants are directed when they fail the task
-var redirectLink = "'https://www.youtube.com/watch?v=dQw4w9WgXcQ'";
-
 var instructionsWidth = 700; // in px; display width of the instructions
 
 // Task duration: 3 min
