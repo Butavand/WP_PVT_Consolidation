@@ -19,11 +19,11 @@ var whichParticipant = {
 var whichVersion = {
     type: jsPsychSurveyHtmlForm,
     html:
-    `<b>Bitte geben Sie the list:</b><br>`+
-    '<p><select class="large-select" id="sex" required="required" name="sex">' + 
-              '<option value=""></option>' + 
-              '<option value="a">a</option>' + 
-              '<option value="b">b</option></select></p>',
+    `<b>Liste wählen:</b><br>
+    <p><select class="large-select" id="wordlist" required="required" name="wordlist">
+        <option value=""></option>
+        <option value="a">a</option>
+        <option value="b">b</option></select></p>`,
     data: { phase: 'version' },
     button_label: ['Weiter'],
     on_finish: function(data) {
