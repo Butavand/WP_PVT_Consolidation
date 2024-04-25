@@ -2,18 +2,14 @@
 
 var timeline = [];
 
-timeline.push(whichParticipant, whichVersion);
-
-
-
 timeline.push(
+    whichParticipant, whichVersion,
+    
     pvtMainInstructionsAfterFirst, 
     pvtMainProcedure, 
     ifMissingFeedback,
-    pvtEnd
-);
-
-timeline.push(
-instructionsTest,
-runTestA, runTestB
+    pvtEnd,
+    
+    instructionsTest,
+    runTestA, runTestB
 );  
