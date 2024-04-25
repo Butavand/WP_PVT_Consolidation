@@ -179,15 +179,15 @@ var encoding = {
 // It runs encoding
 var runEncodingA = {
     timeline: [fixation, encoding],
-    timeline_variables: wordLists[0][21], // first number: list: 0 = A, 1 = B; second: sequence (to do: random!)
-    randomize_order: true,
+    // first number: list: 0 = A, 1 = B; second: sequence (to do: random!); third: unpack!
+    timeline_variables: wordLists[0][sequence_no],
     conditional_function: () => list == 'a' || list == 'A'? true : false
 };
 
 var runEncodingB = {
     timeline: [fixation, encoding],
-    timeline_variables: wordLists[1][21], // first number: list: 0 = A, 1 = B; second: sequence (to do: random!)
-    randomize_order: true,
+    // first number: list: 0 = A, 1 = B; second: sequence (to do: random!); third: unpack!
+    timeline_variables: wordLists[1][sequence_no],
     conditional_function: () => list == 'b' || list == 'B'? true : false
 };
 
@@ -206,7 +206,6 @@ var test = {
             `;
         },
     autofocus: 'test-resp-box-practice',
-//    preamble: 'Probando: <br><br>',
     trial_duration: test_duration,
     data: {
         phase: 'test',
@@ -231,14 +230,14 @@ var test = {
 // It runs test with word of list 1
 var runTestA = {
     timeline: [test, ifWarning],
-    timeline_variables: wordLists[0], //trialStimuli,
+    timeline_variables: wordLists[0][sequence_no],
     randomize_order: true,
     conditional_function: () => list == 'a' || list == 'A'? true : false
 };
 
 var runTestB = {
     timeline: [test, ifWarning],
-    timeline_variables: wordLists[1], //trialStimuli,
+    timeline_variables: wordLists[1][sequence_no],
     randomize_order: true,
     conditional_function: () => list == 'b' || list == 'B'? true : false
 };
