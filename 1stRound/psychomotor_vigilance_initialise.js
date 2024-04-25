@@ -7,7 +7,7 @@ var redirectLink = "'https://www.youtube.com/watch?v=dQw4w9WgXcQ'";
 var instructionsWidth = 700; // in px; display width of the instructions
 
 // Task duration: 3 min
-var pvtTimeLimit = 0.5 * 60000;
+var pvtTimeLimit = 3.0 * 60000;
 
 // Counting how many (practice) PVT trials were valid.
 var pvtTrialCounter = 0;

@@ -75,7 +75,7 @@ var instructionsTest = {
   `<div class="instructions" style="max-width:${instructionsWidth}px;">` +
   ` Geben Sie das gelernte, passende Wort ein. Sie haben dafür 60 Sekunden Zeit. ` +
   `Falls Sie ein Wort nicht wissen, können Sie das Feld leer lassen und die Eingabe überspringen.`+ 
-  `Es spielt keine Rolle, ob Sie Großbuchstaben verwenden oder nicht.<br><br>`,
+  ` Es spielt keine Rolle, ob Sie Großbuchstaben verwenden oder nicht.<br><br>`,
   choices: ['Weiter'] ,
   on_finish: function(data){
     JSON.stringify(data.stimulus);
@@ -88,6 +88,18 @@ var instructionsTestDelay = {
   '<br><br>' +
   `<div class="instructions" style="max-width:${instructionsWidth}px;">` +
     'Im Folgenden werden wir die Aufmerksamkeitsaufgabe und die Testphase noch einmal wiederholen.<br><br>',
+  choices: ['Weiter'],
+  on_finish: function(data){
+    JSON.stringify(data.stimulus);
+  } 
+};
+
+var instructionsThanksMessage = {
+  type: jsPsychHtmlButtonResponse,
+  stimulus: 
+  '<br><br>' +
+  `<div class="instructions" style="max-width:${instructionsWidth}px;">` +
+    'Vielen Dank für Ihre Teilnahme!<br><br>',
   choices: ['Weiter'],
   on_finish: function(data){
     JSON.stringify(data.stimulus);
