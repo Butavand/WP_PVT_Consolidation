@@ -23,8 +23,6 @@ let sequence_no_test = getRandomInt(0, 263);
 
 // draw lists and capitalise all words
 
-let words_a_enc = wordLists[0][sequence_no_enc];
-let words_b_enc = wordLists[1][sequence_no_enc];
 let words_a_test = wordLists[0][sequence_no_test];
 let words_b_test = wordLists[1][sequence_no_test];
 

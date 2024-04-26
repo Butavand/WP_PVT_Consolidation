@@ -11,5 +11,7 @@ timeline.push(
     pvtEnd,
     
     instructionsTest,
-    runTestA, runTestB
+    runTestA, runTestB,
+
+    instructionsThanksMessage
 );  

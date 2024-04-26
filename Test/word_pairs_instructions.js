@@ -47,3 +47,15 @@ var instructionsTestDelay = {
     JSON.stringify(data.stimulus);
   } 
 };
+
+var instructionsThanksMessage = {
+  type: jsPsychHtmlButtonResponse,
+  stimulus: 
+  '<br><br>' +
+  `<div class="instructions" style="max-width:${instructionsWidth}px;">` +
+    'Vielen Dank für Ihre Teilnahme!<br><br>',
+  choices: ['Weiter'],
+  on_finish: function(data){
+    JSON.stringify(data.stimulus);
+  } 
+};
