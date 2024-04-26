@@ -19,4 +19,6 @@ function getRandomInt(min, max) {
 }
 
 // draw random word pair order
-let sequence_no = getRandomInt(0, 263);
+// different onces for encoding and test
+let sequence_no_enc = getRandomInt(0, 263);
+let sequence_no_test = getRandomInt(0, 263);

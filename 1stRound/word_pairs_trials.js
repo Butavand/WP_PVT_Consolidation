@@ -180,14 +180,14 @@ var encoding = {
 var runEncodingA = {
     timeline: [fixation, encoding],
     // first number: list: 0 = A, 1 = B; second: sequence (to do: random!)
-    timeline_variables: wordLists[0][sequence_no],
+    timeline_variables: wordLists[0][sequence_no_enc],
     conditional_function: () => list == 'a' || list == 'A'? true : false
 };
 
 var runEncodingB = {
     timeline: [fixation, encoding],
     // first number: list: 0 = A, 1 = B; second: sequence (to do: random!)
-    timeline_variables: wordLists[1][sequence_no],
+    timeline_variables: wordLists[1][sequence_no_enc],
     conditional_function: () => list == 'b' || list == 'B'? true : false
 };
 
@@ -229,14 +229,12 @@ var test = {
 // It runs test with word of list 1
 var runTestA = {
     timeline: [test, ifWarning],
-    timeline_variables: wordLists[0][sequence_no],
-    randomize_order: true,
+    timeline_variables: wordLists[0][sequence_no_test],
     conditional_function: () => list == 'a' || list == 'A'? true : false
 };
 
 var runTestB = {
     timeline: [test, ifWarning],
-    timeline_variables: wordLists[1][sequence_no],
-    randomize_order: true,
+    timeline_variables: wordLists[1][sequence_no_test],
     conditional_function: () => list == 'b' || list == 'B'? true : false
 };
