@@ -12,6 +12,7 @@ var whichParticipant = {
         participantID = data.response;
         jsPsych.data.addProperties({
             participantID: participantID,
+            round: 'more'
         });
     }
 };
