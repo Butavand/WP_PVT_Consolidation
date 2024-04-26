@@ -29,6 +29,8 @@ var instructionsBreak = {
   `<div class="instructions" style="max-width:${instructionsWidth}px;">` +
   `<p> Machen wir eine Pause </p>`,
   choices: ['Weiter'],
+  // initialise these columns here, so data will be in the "correct" order
+  data: { 'correct_response': null, 'participant_response': null, 'correct_wp': null },
   on_finish: function(data){
     JSON.stringify(data.stimulus);
   }
