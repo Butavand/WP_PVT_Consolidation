@@ -3,8 +3,8 @@
 
 var participantID, session, part, list, presentStatus;
 
-const fixation_dur = 100; //1000; real
-const stimulus_duration = 400;//4000;
+const fixation_dur = 1000; //1000; real
+const stimulus_duration = 4000;//4000;
 const test_duration = 60000;//60000;
 const warningAfter = 20000;//20000;
 

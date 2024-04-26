@@ -223,7 +223,6 @@ var test = {
             data.correct_wp = 0
         };
         data.response = data.response.resp; //JSON.stringify(data.response);
-
     }
 };
 
