@@ -72,36 +72,6 @@ var ifWarning = {
     }
 };
 
-// Actual trials - Encoding
-var encoding = {
-    type: jsPsychHtmlKeyboardResponse,
-    stimulus: function(){
-        return `<p id="word1"> ${jsPsych.timelineVariable('cueWord', true)} </p><p id="dash"> - </p><p id="word2"> ${jsPsych.timelineVariable('targetWord', true)}</p>`;
-    },
-    choices: 'NO_KEYS',
-    data: {
-        phase: 'encoding',
-        pairs_showed: jsPsych.timelineVariable('cueWord')
-    },
-    trial_duration: stimulus_duration,
-    on_finish: function(data){
-        JSON.stringify(data.stimulus);
-    }
-};
-
-// It runs encoding
-var runEncodingA = {
-    timeline: [fixation, encoding],
-    timeline_variables: wordLists[0][sequence_no_enc],
-    conditional_function: () => list == 'a' || list == 'A'? true : false
-};
-
-var runEncodingB = {
-    timeline: [fixation, encoding],
-    timeline_variables: wordLists[1][sequence_no_enc],
-    conditional_function: () => list == 'b' || list == 'B'? true : false
-};
-
 // Actual trials - Test
 var test = {
     type: jsPsychSurveyHtmlForm,
@@ -142,12 +112,12 @@ var test = {
 // It runs test with word of list 1
 var runTestA = {
     timeline: [test, ifWarning],
-    timeline_variables: wordLists[0][sequence_no_test],
+    timeline_variables: words_a_test,
     conditional_function: () => list == 'a' || list == 'A'? true : false
 };
 
 var runTestB = {
     timeline: [test, ifWarning],
-    timeline_variables: wordLists[1][sequence_no_test],
+    timeline_variables: words_b_test,
     conditional_function: () => list == 'b' || list == 'B'? true : false
 };

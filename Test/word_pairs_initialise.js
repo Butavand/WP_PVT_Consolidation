@@ -19,6 +19,21 @@ function getRandomInt(min, max) {
 }
 
 // draw random word pair order
-// different onces for encoding and test
-let sequence_no_enc = getRandomInt(0, 263);
 let sequence_no_test = getRandomInt(0, 263);
+
+// draw lists and capitalise all words
+
+let words_a_enc = wordLists[0][sequence_no_enc];
+let words_b_enc = wordLists[1][sequence_no_enc];
+let words_a_test = wordLists[0][sequence_no_test];
+let words_b_test = wordLists[1][sequence_no_test];
+
+words_a_test.forEach(item => {
+    item.cueWord = item.cueWord.toUpperCase();
+    item.targetWord = item.targetWord.toUpperCase();
+});
+
+words_b_test.forEach(item => {
+    item.cueWord = item.cueWord.toUpperCase();
+    item.targetWord = item.targetWord.toUpperCase();
+});

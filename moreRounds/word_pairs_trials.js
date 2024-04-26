@@ -177,13 +177,13 @@ var encoding = {
 // It runs encoding
 var runEncodingA = {
     timeline: [fixation, encoding],
-    timeline_variables: wordLists[0][sequence_no_enc],
+    timeline_variables: words_a_enc,
     conditional_function: () => list == 'a' || list == 'A'? true : false
 };
 
 var runEncodingB = {
     timeline: [fixation, encoding],
-    timeline_variables: wordLists[1][sequence_no_enc],
+    timeline_variables: words_b_enc,
     conditional_function: () => list == 'b' || list == 'B'? true : false
 };
 
@@ -226,12 +226,12 @@ var test = {
 // It runs test with word of list 1
 var runTestA = {
     timeline: [test, ifWarning],
-    timeline_variables: wordLists[0][sequence_no_test],
+    timeline_variables: words_a_test,
     conditional_function: () => list == 'a' || list == 'A'? true : false
 };
 
 var runTestB = {
     timeline: [test, ifWarning],
-    timeline_variables: wordLists[1][sequence_no_test],
+    timeline_variables: words_b_test,
     conditional_function: () => list == 'b' || list == 'B'? true : false
 };
