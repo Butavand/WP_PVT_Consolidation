@@ -19,7 +19,7 @@ var pvtStartScreen = {
           Reaktionszeiten unter ${prematureTime/1000} Sekunden z\u00e4hlen ebenfalls als Fehler. 
           <p style="color:#8B0000"><b>Zu viele Fehler f\u00fchren zum Ausschluss von der Studie!</b></p>
           Aber keine Sorge, wenn Sie die Leertaste dr\u00fccken, sobald die Uhr beginnt hochzuz\u00e4hlen, 
-          warden Sie auf jeden Fall rechtzeitig reagieren.<br>
+          werden Sie auf jeden Fall rechtzeitig reagieren.<br>
           Sie können die Aufgabe nun kurz \u00fcben.
       </div>
       <br><br>`
@@ -63,7 +63,7 @@ var pvtStartScreen = {
             Reaktionszeiten unter ${prematureTime/1000} Sekunden z\u00e4hlen ebenfalls als Fehler. 
             <p style="color:#8B0000"><b>Zu viele Fehler f\u00fchren zum Ausschluss von der Studie!</b></p>
             Aber keine Sorge, wenn Sie die Leertaste dr\u00fccken, sobald die Uhr beginnt hochzuz\u00e4hlen, 
-            warden Sie auf jeden Fall rechtzeitig reagieren.<br>
+            werden Sie auf jeden Fall rechtzeitig reagieren.<br>
             Sie können die Aufgabe nun kurz \u00fcben.
             </div>
             <br><br>`,

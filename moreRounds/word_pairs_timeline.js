@@ -2,22 +2,21 @@
 
 var timeline = [];
 
-timeline.push(whichParticipant, whichVersion);
+timeline.push(
+    whichParticipant, whichVersion,
 
-        timeline.push(instructionsTrial);
-        timeline.push(
-            runEncodingA, runEncodingB,
-            instructionsBreak
-        )
-        
-        timeline.push(
-            pvtMainInstructionsAfterFirst, 
-            pvtMainProcedure, 
-            ifMissingFeedback,
-            pvtEnd
-        );
-     
-    timeline.push(
-        instructionsTest,
-        runTestA, runTestB
-    );  
+    instructionsTrial,
+    
+    runEncodingA, runEncodingB,
+    instructionsBreak,
+    
+    pvtMainInstructionsAfterFirst, 
+    pvtMainProcedure, 
+    ifMissingFeedback,
+    pvtEnd,
+    
+    instructionsTest,
+    runTestA, runTestB,
+
+    instructionsThanksMessage
+);

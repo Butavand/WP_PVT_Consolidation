@@ -19,11 +19,11 @@ var whichParticipant = {
 var whichVersion = {
     type: jsPsychSurveyHtmlForm,
     html:
-    `<b>Bitte geben Sie the list:</b><br>`+
-    '<p><select class="large-select" id="sex" required="required" name="sex">' + 
-              '<option value=""></option>' + 
-              '<option value="a">a</option>' + 
-              '<option value="b">b</option></select></p>',
+    `<b>Liste wählen:</b><br>
+    <p><select class="large-select" id="wordlist" required="required" name="wordlist">
+        <option value=""></option>
+        <option value="a">a</option>
+        <option value="b">b</option></select></p>`,
     data: { phase: 'version' },
     button_label: ['Weiter'],
     on_finish: function(data) {
@@ -32,10 +32,8 @@ var whichVersion = {
         jsPsych.data.addProperties({
             list: list,
         });
-
     }
 };
-
 
 // Fixation cross
 var fixation = {
@@ -73,125 +71,6 @@ var ifWarning = {
         }
     }
 };
-
-// It shows cue and target words for the practice
-var practiceEncoding = {
-    type: jsPsychHtmlKeyboardResponse,
-    stimulus: function(){
-        return `<p id="word1"> ${jsPsych.timelineVariable('cuePractice', true)} </p> <p id="dash"> - </p> <p id="word2">${jsPsych.timelineVariable('targetPractice', true)} </p>`;
-    },
-    trial_duration: stimulus_duration,
-    data: {
-        phase: 'practice encoding',
-        pairs_showed: jsPsych.timelineVariable('cuePractice')
-    },
-    on_finish: function(data){
-        JSON.stringify(data.stimulus);
-    }
-  };
-
-  
-// It runs practice + fixation  
-var practiceRunEncodingA = {
-    timeline: [practiceEncoding, fixation],
-    timeline_variables: practiceStimuli[0],
-    choices: 'NO_KEYS',
-    radomize_order: true,
-    conditional_function: () => list == 'a' ? true : false
-
-};
-
-var practiceRunEncodingB = {
-    timeline: [practiceEncoding, fixation],
-    timeline_variables: practiceStimuli[1],
-    choices: 'NO_KEYS',
-    radomize_order: true,
-    conditional_function: () => list == 'b' ? true : false
-
-};
-
-var practiceTest = {
-    type: jsPsychSurveyHtmlForm,
-    html: function (){
-        return `
-            <div id="test-container">
-            <p id="test-stimulus">
-                ${jsPsych.timelineVariable('cuePractice', true)} - 
-                <input type="text" id="test-resp-box-practice" name="resp">
-                <br><br>
-            </p>
-            </div>
-            `;
-        },
-    autofocus: 'test-resp-box-practice',
-    preamble: 'So in etwa sieht die Abfrage aus:<br><br>',
-    trial_duration: test_duration,
-    data: {
-        phase: 'practice test',
-        correct_response: jsPsych.timelineVariable('targetPractice')
-    },
-    button_label: ['Weiter'],
-    on_finish: function(data){  
-        //let trials = jsPsych.data.get().filter({task: 'test'});
-        let participant_response = data.response.resp;//trials.select('response').values[0].resp;
-        data.participant_response = participant_response.toUpperCase();
-        if (participant_response == data.correct_response || data.correct_response == participant_response.toUpperCase()) {
-            data.correct_wp = 1
-        } else {
-            data.correct_wp = 0
-        };
-        data.response = data.response.resp; //JSON.stringify(data.response);
-      }
-  };
-
-// It runs the practice Test
-var practiceRunTestA = {
-    timeline: [practiceTest, ifWarning],
-    timeline_variables: practiceStimuli[0],
-    randomize_order: true,
-    conditional_function: () => list == 'a'? true : false
-};
-
-var practiceRunTestB = {
-    timeline: [practiceTest, ifWarning],
-    timeline_variables: practiceStimuli[1],
-    randomize_order: true,
-    conditional_function: () => list == 'b'? true : false
-};
-
-// Actual trials - Encoding
-var encoding = {
-    type: jsPsychHtmlKeyboardResponse,
-    stimulus: function(){
-        return `<p id="word1"> ${jsPsych.timelineVariable('cueWord', true)} </p><p id="dash"> - </p><p id="word2"> ${jsPsych.timelineVariable('targetWord', true)}</p>`;
-    },
-    choices: 'NO_KEYS',
-    data: {
-        phase: 'encoding',
-        pairs_showed: jsPsych.timelineVariable('cueWord')
-    },
-    trial_duration: stimulus_duration,
-    on_finish: function(data){
-        JSON.stringify(data.stimulus);
-    }
-};
-
-// It runs encoding
-var runEncodingA= {
-    timeline: [fixation, encoding],
-    timeline_variables: wordLists[0],
-    randomize_order: true,
-    conditional_function: () => list == 'a' || list == 'A'? true : false
-};
-
-var runEncodingB= {
-    timeline: [fixation, encoding],
-    timeline_variables: wordLists[1],
-    randomize_order: true,
-    conditional_function: () => list == 'b' || list == 'B'? true : false
-};
-
-
 
 // Actual trials - Test
 var test = {
@@ -233,14 +112,12 @@ var test = {
 // It runs test with word of list 1
 var runTestA = {
     timeline: [test, ifWarning],
-    timeline_variables: wordLists[0], //trialStimuli,
-    randomize_order: true,
+    timeline_variables: words_a_test,
     conditional_function: () => list == 'a' || list == 'A'? true : false
 };
 
 var runTestB = {
     timeline: [test, ifWarning],
-    timeline_variables: wordLists[1], //trialStimuli,
-    randomize_order: true,
+    timeline_variables: words_b_test,
     conditional_function: () => list == 'b' || list == 'B'? true : false
 };

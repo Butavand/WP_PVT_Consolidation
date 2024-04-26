@@ -19,11 +19,11 @@ var whichParticipant = {
 var whichVersion = {
     type: jsPsychSurveyHtmlForm,
     html:
-    `<b>Bitte geben Sie the list:</b><br>`+
-    '<p><select class="large-select" id="sex" required="required" name="sex">' + 
-              '<option value=""></option>' + 
-              '<option value="a">a</option>' + 
-              '<option value="b">b</option></select></p>',
+    `<b>Liste wählen:</b><br>
+    <p><select class="large-select" id="wordlist" required="required" name="wordlist">
+        <option value=""></option>
+        <option value="a">a</option>
+        <option value="b">b</option></select></p>`,
   
     data: { phase: 'version' },
     button_label: ['Weiter'],
@@ -36,7 +36,6 @@ var whichVersion = {
 
     }
 };
-
 
 // Fixation cross
 var fixation = {
@@ -99,7 +98,6 @@ var practiceRunEncodingA = {
     choices: 'NO_KEYS',
     radomize_order: true,
     conditional_function: () => list == 'a' ? true : false
-
 };
 
 var practiceRunEncodingB = {
@@ -108,7 +106,6 @@ var practiceRunEncodingB = {
     choices: 'NO_KEYS',
     radomize_order: true,
     conditional_function: () => list == 'b' ? true : false
-
 };
 
 var practiceTest = {
@@ -178,20 +175,17 @@ var encoding = {
 };
 
 // It runs encoding
-var runEncodingA= {
+var runEncodingA = {
     timeline: [fixation, encoding],
-    timeline_variables: wordLists[0],
-    randomize_order: true,
+    timeline_variables: words_a_enc,
     conditional_function: () => list == 'a' || list == 'A'? true : false
 };
 
-var runEncodingB= {
+var runEncodingB = {
     timeline: [fixation, encoding],
-    timeline_variables: wordLists[1],
-    randomize_order: true,
+    timeline_variables: words_b_enc,
     conditional_function: () => list == 'b' || list == 'B'? true : false
 };
-
 
 // Actual trials - Test
 var test = {
@@ -208,7 +202,6 @@ var test = {
             `;
         },
     autofocus: 'test-resp-box-practice',
-//    preamble: 'Probando: <br><br>',
     trial_duration: test_duration,
     data: {
         phase: 'test',
@@ -233,14 +226,12 @@ var test = {
 // It runs test with word of list 1
 var runTestA = {
     timeline: [test, ifWarning],
-    timeline_variables: wordLists[0], //trialStimuli,
-    randomize_order: true,
+    timeline_variables: words_a_test,
     conditional_function: () => list == 'a' || list == 'A'? true : false
 };
 
 var runTestB = {
     timeline: [test, ifWarning],
-    timeline_variables: wordLists[1], //trialStimuli,
-    randomize_order: true,
+    timeline_variables: words_b_test,
     conditional_function: () => list == 'b' || list == 'B'? true : false
 };
