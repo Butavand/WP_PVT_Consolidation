@@ -92,8 +92,8 @@ var test = {
     trial_duration: test_duration,
     data: {
         phase: 'test',
-        correct_response: jsPsych.timelineVariable('targetWord'),
         pairs_showed: jsPsych.timelineVariable('cueWord'),
+        correct_response: jsPsych.timelineVariable('targetWord'),
     },
     button_label: ['Weiter'],
     on_finish: function(data){
